@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SyncLounge | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body data-page="dashboard">
+    <main class="dashboard-shell">
+      <section class="dashboard-hero">
+        <div class="dashboard-copy">
+          <p class="eyebrow">Control Center</p>
+          <h1>Launch a private screening room in one click.</h1>
+          <p class="lead" id="welcome-copy"></p>
+        </div>
+        <div class="dashboard-badges">
+          <span class="pill pill-accent">Long-video ready</span>
+          <span class="pill">Socket.IO synced</span>
+          <span class="pill">Invite-link join flow</span>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="action-card action-card-primary">
+          <div class="card-number">01</div>
+          <h2>Create a room</h2>
+          <p>Become the host, upload the master file, and share the generated invite link.</p>
+          <button id="create-room-btn" class="button button-primary" type="button">Create Private Room</button>
+        </article>
+
+        <article class="action-card">
+          <div class="card-number">02</div>
+          <h2>Join with invite link</h2>
+          <p>Paste the full room link and jump directly into the synchronized stream.</p>
+          <form id="join-room-form" class="stack-lg">
+            <label class="field">
+              <span>Invite link</span>
+              <input id="invite-link-input" type="url" placeholder="https://your-domain.com/room/AB12CD" required />
+            </label>
+            <button class="button button-secondary" type="submit">Join Room</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <script src="/client.js"></script>
+  </body>
+</html>

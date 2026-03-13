@@ -1,0 +1,12 @@
+# Ignore node modules
+node_modules/
+dist/
+uploads/
+*.tsbuildinfo
+ngrok.exe
+
+# Ignore log files
+*.log
+
+# Ignore macOS system files
+.DS_Store

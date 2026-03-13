@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SyncLounge | Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body data-page="login">
+    <main class="auth-shell">
+      <section class="hero-panel hero-login">
+        <div class="hero-copy">
+          <p class="eyebrow">Real-Time Watch Party</p>
+          <h1>Stream long-form video in a private room that stays locked in sync.</h1>
+          <p class="lead">
+            Upload one MP4 or WEBM, invite the room, and let the host drive playback for everyone.
+          </p>
+        </div>
+        <div class="metric-ribbon">
+          <article class="metric-card">
+            <strong>HTTP range streaming</strong>
+            <span>Start playback before the full 2+ hour file finishes buffering.</span>
+          </article>
+          <article class="metric-card">
+            <strong>Host-led synchronization</strong>
+            <span>Play, pause, and seek events are broadcast live to every viewer.</span>
+          </article>
+          <article class="metric-card">
+            <strong>Invite-only rooms</strong>
+            <span>Private room IDs and copyable links keep access simple.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="auth-card">
+        <div class="panel-kicker">
+          <p class="eyebrow">Sign In</p>
+          <h2>Pick your room identity</h2>
+          <p class="muted">Usernames are stored locally so you can rejoin without friction.</p>
+        </div>
+
+        <form id="login-form" class="stack-lg">
+          <label class="field">
+            <span>Username</span>
+            <input id="username-input" name="username" type="text" maxlength="24" placeholder="screening-host" required />
+          </label>
+          <button class="button button-primary" type="submit">Enter Dashboard</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/client.js"></script>
+  </body>
+</html>

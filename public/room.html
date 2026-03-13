@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SyncLounge | Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body data-page="room">
+    <main class="room-shell">
+      <section class="room-main">
+        <header class="room-hero">
+          <div>
+            <p class="eyebrow">Private Watch Room</p>
+            <h1 id="room-title">Loading room...</h1>
+            <p class="lead room-subcopy">
+              Long videos stream over HTTP range requests so viewers can start immediately without downloading the full file.
+            </p>
+          </div>
+          <div class="room-meta-band">
+            <div class="status-card">
+              <span class="status-label">Host</span>
+              <strong id="host-badge">Loading</strong>
+            </div>
+            <div class="status-card">
+              <span class="status-label">Room status</span>
+              <strong id="notification-badge">Waiting</strong>
+            </div>
+          </div>
+        </header>
+
+        <section class="stream-panel">
+          <div class="stream-toolbar">
+            <div>
+              <p class="eyebrow">Shared Stream</p>
+              <h2 id="video-title">No file uploaded yet</h2>
+              <p class="muted" id="stream-hint">Host uploads one MP4 or WEBM file. Everyone watches the same stream URL.</p>
+            </div>
+            <div class="invite-cluster">
+              <button id="fullscreen-btn" class="button button-secondary" type="button">Fullscreen</button>
+              <button id="share-screen-btn" class="button button-secondary" type="button">Share Screen</button>
+              <button id="stop-share-btn" class="button button-secondary hidden" type="button">Stop Sharing</button>
+              <button id="leave-room-btn" class="button button-secondary" type="button">Leave Room</button>
+              <input id="invite-link-display" class="invite-input" type="text" readonly />
+              <button id="copy-invite-btn" class="button button-secondary" type="button">Copy Invite</button>
+            </div>
+          </div>
+
+          <div id="screen-share-shell" class="screen-share-shell hidden">
+            <div class="screen-share-header">
+              <div>
+                <p class="eyebrow">Live Screen Share</p>
+                <h3 id="screen-share-title">Host screen</h3>
+              </div>
+              <span id="screen-share-state" class="pill pill-accent">Inactive</span>
+            </div>
+            <video id="screen-share-player" class="screen-share-player" autoplay playsinline muted></video>
+          </div>
+
+          <div class="player-stage">
+            <video id="html5-player" controls playsinline preload="auto"></video>
+            <div id="viewer-overlay" class="viewer-overlay hidden">
+              <span>Only the host controls playback</span>
+            </div>
+            <div id="player-placeholder" class="placeholder-card">
+              <p class="eyebrow">Upload Ready</p>
+              <h3>Drop in a long-form MP4 or WEBM and SyncLounge streams it chunk-by-chunk.</h3>
+            </div>
+          </div>
+
+          <div class="upload-band">
+            <div class="upload-copy">
+              <strong>Host upload</strong>
+              <span id="caption-hint">Supported: MP4, WEBM and WebVTT captions. Optimized for multi-hour files via HTTP byte-range streaming.</span>
+              <span id="upload-progress-text" class="muted hidden">Preparing upload...</span>
+            </div>
+            <div class="upload-actions">
+              <label class="button button-primary upload-button" for="video-file-input">Upload Video</label>
+              <input id="video-file-input" type="file" accept=".mp4,.webm,video/mp4,video/webm" hidden />
+              <label class="button button-secondary caption-upload-button" for="caption-file-input">Upload Captions</label>
+              <input id="caption-file-input" type="file" hidden />
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="room-sidebar">
+        <section class="sidebar-card">
+          <div class="sidebar-header">
+            <h2>Online users</h2>
+            <span id="user-count" class="pill">0</span>
+          </div>
+          <ul id="user-list" class="user-list"></ul>
+        </section>
+
+        <section class="sidebar-card chat-card">
+          <div class="sidebar-header">
+            <h2>Room chat</h2>
+          </div>
+          <div id="chat-messages" class="chat-messages"></div>
+          <form id="chat-form" class="chat-form">
+            <label class="sr-only" for="chat-input">Chat message</label>
+            <input id="chat-input" type="text" maxlength="300" placeholder="Message the room" required />
+            <button class="button button-secondary" type="submit">Send</button>
+          </form>
+        </section>
+      </aside>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
