@@ -1,0 +1,7 @@
+emailjs.send("service_wyvae0m","template_qgld02c",{
+name: "",
+time: 10,
+message: "",
+title: "",
+email: "",
+});
